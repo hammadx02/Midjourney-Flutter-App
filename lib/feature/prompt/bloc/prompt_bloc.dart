@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:midjourney_flutter_app/feature/prompt/repos/prompt_repo.dart';
 
 part 'prompt_event.dart';
 part 'prompt_state.dart';
@@ -12,5 +14,8 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
   }
 
   FutureOr<void> promptEnteredEvent(
-      PromptEnteredEvent event, Emitter<PromptState> emit) {}
+      PromptEnteredEvent event, Emitter<PromptState> emit) async {
+    emit(PromptGenerateImageLoadState());
+    File? file = await PromptRepo.generateImage(event.prompt);
+  }
 }
