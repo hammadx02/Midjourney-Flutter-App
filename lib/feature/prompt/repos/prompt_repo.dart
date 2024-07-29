@@ -21,10 +21,12 @@ class PromptRepo {
         'high_res_results': '1'
       };
 
+      FormData formData = FormData.fromMap(payload);
+
       Dio dio = Dio();
       dio.options = BaseOptions(headers: headers);
 
-      final response = await dio.post(url, data: payload);
+      final response = await dio.post(url, data: formData);
       if (response.statusCode == 200) {
         File file = File('image.jpg');
         file.writeAsBytesSync(response.data);
