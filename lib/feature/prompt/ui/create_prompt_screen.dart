@@ -104,7 +104,13 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
                                 backgroundColor:
                                     WidgetStateProperty.all(Colors.deepPurple),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                if (controller.text.isNotEmpty) {
+                                  promptBloc.add(
+                                    PromptEnteredEvent(prompt: controller.text),
+                                  );
+                                }
+                              },
                               icon: const Icon(Icons.generating_tokens),
                               label: const Text("Generate"),
                             ),
@@ -115,8 +121,8 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
                   ],
                 ),
               );
-              default: 
-              return SizedBox();
+            default:
+              return const SizedBox();
           }
         },
       ),
