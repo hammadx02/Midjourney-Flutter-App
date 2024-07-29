@@ -46,11 +46,12 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
             case const (PromptGenerateImageErrorState):
               return const Center(
                 child: Text(
-                  "Something went wrong 🤖🔥",
+                  "😢🔧 Oops! Something went wrong",
                 ),
               );
 
             case PromptGenerateImageSuccessState:
+              final successState = state as PromptGenerateImageSuccessState;
               return Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +59,11 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
                     Expanded(
                       child: Container(
                         width: double.maxFinite,
-                        color: Colors.deepPurple,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: FileImage(successState.file),
+                          ),
+                        ),
                       ),
                     ),
                     Container(
