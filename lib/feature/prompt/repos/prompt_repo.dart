@@ -28,8 +28,9 @@ class PromptRepo {
 
       final response = await dio.post(url, data: formData);
       if (response.statusCode == 200) {
+        List<int> bytes = response.data.bytes;
         File file = File('image.jpg');
-        file.writeAsBytesSync(response.data);
+        file.writeAsBytes(bytes);
         return file;
       } else {
         return null;
