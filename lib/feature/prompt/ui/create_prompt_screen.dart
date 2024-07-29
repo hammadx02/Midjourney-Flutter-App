@@ -61,6 +61,7 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
                         width: double.maxFinite,
                         decoration: BoxDecoration(
                           image: DecorationImage(
+                            fit: BoxFit.cover,
                             image: FileImage(successState.file),
                           ),
                         ),
@@ -114,6 +115,8 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
                   ],
                 ),
               );
+              default: 
+              return SizedBox();
           }
         },
       ),
