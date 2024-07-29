@@ -21,24 +21,7 @@ Map<String, dynamic> payload = {
       Dio dio = Dio();
       dio.options = BaseOptions(headers: headers);
 
-      final response = dio.post(url, data: payload);
+      final response = await dio.post(url, data: payload);
 
   }
 }
-
-
-
-
-
-# Using None here allows us to treat the parameters as string
-payload = {
-  
-}
-
-response = requests.post(url, headers=headers, files=payload)
-
-if response.status_code == 200:  # if request is successful
-  with open('image.jpg', 'wb') as f:
-    f.write(response.content)
-else:
-  print("Error:", response.status_code)
