@@ -9,4 +9,8 @@ final class PromptGenerateImageLoadState extends PromptState {}
 
 final class PromptGenerateImageErrorState extends PromptState {}
 
-final class PromptGenerateImageSuccessState extends PromptState {}
+final class PromptGenerateImageSuccessState extends PromptState {
+  final File file;
+
+  PromptGenerateImageSuccessState(this.file);
+}
