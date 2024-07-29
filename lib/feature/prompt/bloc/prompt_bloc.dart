@@ -18,12 +18,10 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
   FutureOr<void> promptEnteredEvent(
       PromptEnteredEvent event, Emitter<PromptState> emit) async {
     emit(PromptGenerateImageLoadState());
-    List<int>? bytes = await PromptRepo.generateImage(event.prompt);
+    Uint8List? bytes = await PromptRepo.generateImage(event.prompt);
     if (bytes != null) {
       emit(
-        PromptGenerateImageSuccessState(
-          Uint8List.fromList(bytes),
-        ),
+        PromptGenerateImageSuccessState(bytes),
       );
     } else {
       return emit(PromptGenerateImageErrorState());
