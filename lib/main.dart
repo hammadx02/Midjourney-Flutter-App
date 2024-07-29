@@ -1,4 +1,4 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +13,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter + Midjourney 🚀',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        appBarTheme: AppBarTheme(
+          centerTitle: true,
+          backgroundColor: Colors.grey.shade900,
+          elevation: 0,
+        ),
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.grey.shade900,
       ),
-      home: 
+      home: CreatePromptScreen(),
     );
   }
 }
