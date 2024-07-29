@@ -25,6 +25,8 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
     }
   }
 
-  FutureOr<void> promptInitialEvent(PromptInitialEvent event, Emitter<PromptState> emit) {
+  FutureOr<void> promptInitialEvent(
+      PromptInitialEvent event, Emitter<PromptState> emit) {
+    emit(PromptGenerateImageSuccessState(File('assets/file.png')));
   }
 }
