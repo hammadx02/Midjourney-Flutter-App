@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+
 class PromptRepo {
   static generateImage(String prompt) async {
 
@@ -15,6 +17,9 @@ Map<String, dynamic> payload = {
         'seed': '1',
         'high_res_results': '1'
       };
+
+      Dio dio = Dio();
+      dio.options = BaseOptions(headers: headers);
 
   }
 }
