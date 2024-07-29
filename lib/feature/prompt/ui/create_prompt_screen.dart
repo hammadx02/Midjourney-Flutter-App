@@ -40,7 +40,9 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
           switch (state.runtimeType) {
             case const (PromptGenerateImageLoadState):
               return const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                  color: Colors.deepPurple,
+                ),
               );
 
             case const (PromptGenerateImageErrorState):
@@ -97,10 +99,17 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
                           ),
                           const SizedBox(height: 20),
                           SizedBox(
-                            height: 48,
+                            height: 56,
                             width: double.maxFinite,
                             child: ElevatedButton.icon(
                               style: ButtonStyle(
+                                shape: WidgetStateProperty.all(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                      12.0,
+                                    ),
+                                  ),
+                                ),
                                 backgroundColor:
                                     WidgetStateProperty.all(Colors.deepPurple),
                               ),
