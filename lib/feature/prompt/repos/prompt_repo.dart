@@ -22,7 +22,7 @@ class PromptRepo {
       FormData formData = FormData.fromMap(payload);
 
       Dio dio = Dio();
-      dio.options = BaseOptions(headers: headers);
+      dio.options = BaseOptions(headers: headers, responseType: ResponseType.bytes);
 
       final response = await dio.post(url, data: formData);
       if (response.statusCode == 200) {
