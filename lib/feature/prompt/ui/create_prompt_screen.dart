@@ -37,6 +37,13 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
         bloc: promptBloc,
         listener: (context, state) {},
         builder: (context, state) {
+          switch (state.runtimeType) {
+            case const (PromptGenerateImageLoadState):
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+          }
+
           return Container(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
