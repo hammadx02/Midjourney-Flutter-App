@@ -62,7 +62,7 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: FileImage(successState.file),
+                            image: MemoryImage(successState.uint8list),
                           ),
                         ),
                       ),
