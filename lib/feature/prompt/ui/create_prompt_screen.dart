@@ -21,7 +21,7 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Generate Images 🚀",
+          "Image Generator AI 🤖🔥",
         ),
       ),
       body: Container(
