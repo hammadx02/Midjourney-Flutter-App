@@ -18,7 +18,7 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
     emit(PromptGenerateImageLoadState());
     File? file = await PromptRepo.generateImage(event.prompt);
     if (file != null) {
-      emit(PromptGenerateImageSuccessState());
+      emit(PromptGenerateImageSuccessState(file));
     } else {
       return emit(PromptGenerateImageErrorState());
     }
