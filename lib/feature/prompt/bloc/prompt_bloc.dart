@@ -11,6 +11,7 @@ part 'prompt_state.dart';
 class PromptBloc extends Bloc<PromptEvent, PromptState> {
   PromptBloc() : super(PromptInitial()) {
     on<PromptEnteredEvent>(promptEnteredEvent);
+    on<PromptInitialEvent>(promptInitialEvent);
   }
 
   FutureOr<void> promptEnteredEvent(
@@ -22,5 +23,8 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
     } else {
       return emit(PromptGenerateImageErrorState());
     }
+  }
+
+  FutureOr<void> promptInitialEvent(PromptInitialEvent event, Emitter<PromptState> emit) {
   }
 }
