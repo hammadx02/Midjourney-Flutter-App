@@ -1,8 +1,11 @@
+import 'dart:developer';
+import 'dart:typed_data';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class PromptRepo {
-  static Future<List<int>?> generateImage(String prompt) async {
+  static Future<Uint8List?> generateImage(String prompt) async {
     try {
       String url = 'https://api.vyro.ai/v1/imagine/api/generations';
 
@@ -22,17 +25,20 @@ class PromptRepo {
       FormData formData = FormData.fromMap(payload);
 
       Dio dio = Dio();
-      dio.options = BaseOptions(headers: headers, responseType: ResponseType.bytes);
+      dio.options =
+          BaseOptions(headers: headers, responseType: ResponseType.bytes);
 
       final response = await dio.post(url, data: formData);
       if (response.statusCode == 200) {
-        String bytes = response.data.toString();
-        return bytes.codeUnits;
+        log(response.data.runtimeType.toString());
+        log(response.data.toString());
+        Uint8List uint8list = Uint8List.fromList(response.data);
+        return uint8list;
       } else {
         return null;
       }
     } catch (e) {
-      debugPrint(e.toString());
+      log(e.toString());
     }
   }
 }
