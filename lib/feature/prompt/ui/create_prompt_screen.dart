@@ -28,6 +28,7 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
         ),
       ),
       body: BlocConsumer<PromptBloc, PromptState>(
+        bloc: promptBloc,
         listener: (context, state) {
           // TODO: implement listener
         },
