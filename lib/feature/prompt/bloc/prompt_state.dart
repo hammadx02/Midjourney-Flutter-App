@@ -10,7 +10,7 @@ final class PromptGenerateImageLoadState extends PromptState {}
 final class PromptGenerateImageErrorState extends PromptState {}
 
 final class PromptGenerateImageSuccessState extends PromptState {
-  final File file;
+  final Uint8List uint8list;
 
-  PromptGenerateImageSuccessState(this.file);
+  PromptGenerateImageSuccessState(this.uint8list);
 }
