@@ -31,6 +31,7 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
             Expanded(
               child: Container(
                 width: double.maxFinite,
+                color: Colors.deepPurple,
               ),
             ),
             Container(
