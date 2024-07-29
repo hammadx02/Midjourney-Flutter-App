@@ -11,6 +11,7 @@ class CreatePromptScreen extends StatefulWidget {
 
 class _CreatePromptScreenState extends State<CreatePromptScreen> {
   TextEditingController controller = TextEditingController();
+  final PromptBloc promptBloc = PromptBloc();
 
   @override
   void dispose() {
