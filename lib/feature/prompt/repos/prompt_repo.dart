@@ -1,10 +1,8 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class PromptRepo {
-  static generateImage(String prompt) async {
+  static Future<List<int>?> generateImage(String prompt) async {
     try {
       String url = 'https://api.vyro.ai/v1/imagine/api/generations';
 
@@ -28,10 +26,8 @@ class PromptRepo {
 
       final response = await dio.post(url, data: formData);
       if (response.statusCode == 200) {
-        List<int> bytes = response.data.bytes;
-        File file = File('image.jpg');
-        file.writeAsBytes(bytes);
-        return file;
+        String bytes = response.data.toString();
+        return bytes.codeUnits;
       } else {
         return null;
       }
