@@ -41,7 +41,10 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
                 children: [
                   const Text(
                     "Enter your prompt",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 20),
                   TextField(
