@@ -14,6 +14,12 @@ class _CreatePromptScreenState extends State<CreatePromptScreen> {
   final PromptBloc promptBloc = PromptBloc();
 
   @override
+  void initState() {
+    promptBloc.add(PromptInitialEvent());
+    super.initState();
+  }
+
+  @override
   void dispose() {
     super.dispose();
     controller.dispose();
